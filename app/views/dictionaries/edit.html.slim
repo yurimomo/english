@@ -1,0 +1,6 @@
+p word edit
+
+.nav-justify-content-end
+  = link_to '一覧', dictionary_path, class: 'nav-link'
+
+= render partial: 'form', locals: { dictionary: @dictionary}

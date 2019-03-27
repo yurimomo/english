@@ -1,0 +1,45 @@
+= form_with model: @dictionary, class: 'container' , local: true do |f|
+    .form-group
+      = f.label :english
+      = f.text_field :eword, class: 'form-control', id: 'task_name'
+    .form-group
+      = f.label :japanese
+      = f.text_field :jword, row:5, class: 'form-control', id: 'dictionary_description'
+    .form-group
+      = f.label :tips
+      = f.text_area :detail, row:5, class: 'form-control'
+
+    .form-check-inline
+      =f. radio_button :speech, "adv", id: "adv"
+      =f.label :adv ,'adv',for: "adv", class: 'label'
+    .form-check-inline
+      =f. radio_button :speech, "verb", id: 'verb'
+      =f.label :verb ,'verb',for: "verb", class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, "sv", name: "1", id: 'sv'
+      =f.label :grammer , 'sv', for: 'sv',class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, "svc", name: "2",id: 'svc'
+      =f.label :grammer, 'svc' , for: 'svc',class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, "svo",name: "3", id: 'svo'
+      =f.label :grammer, 'svo' , for: 'svo',class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, "svoo",name: "4", id: 'svoo'
+      =f.label :grammer, 'svoo' ,for: 'svoo', class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, "svoc", name: "5", id: 'svoc'
+      =f.label :grammer, 'svoc', for: 'svoc', class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, ""
+      =f.text_field :grammer, class: 'label'
+
+    .form-group
+    = f.submit nil, class: 'btn btn-primary'
+        

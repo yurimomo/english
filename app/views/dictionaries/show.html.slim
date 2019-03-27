@@ -1,0 +1,41 @@
+h4.title English detail and tips
+
+div.nav-link = link_to 'back', dictionaries_path, class: 'btn btn-primary'
+
+h4.title = "#{@dictionary.eword} - (#{@dictionary.jword})"
+
+tip
+
+= form_with model: @dictionary ,class: 'container' ,local: true do |f|
+    .form-check-inline
+      =f. radio_button :speech, "adv"
+      =f.label :adv , 'adv', class: 'label'
+    .form-check-inline
+      =f. radio_button :speech, "verb"
+      =f.label :verb , 'verb', class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, "svo"
+      =f.label :grammer , 'svo', class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, "svc"
+      =f.label :grammer, 'svc' , class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, "svoo"
+      =f.label :grammer, 'svoo' , class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, "svoc"
+      =f.label :grammer, 'svoc' , class: 'label'
+
+    .form-check-inline
+      =f.radio_button :grammer, ""
+      =f.text_field :grammer, class: 'label'
+
+    =f.text_area :detail, :cols => "60", :rows => "10"
+
+
+    .form-group
+      = f.submit nil, class: 'btn btn-primary'

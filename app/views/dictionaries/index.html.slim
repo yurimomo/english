@@ -1,0 +1,26 @@
+h4.title English List 
+
+= link_to '新規登録', new_dictionary_path, class: 'btn btn-primary register'
+
+table.table.table-striped.container
+  thead
+    tr
+      th word
+      th meaning
+      th speech
+      th grammer
+      th tips
+      th created_at
+      th colspan="3"
+  tbody
+    - @dictionaries.each do |dictionary|
+      tr
+        td = link_to dictionary.eword, dictionary
+        td = dictionary.jword
+        td = dictionary.speech
+        td = dictionary.grammer
+        td = dictionary.detail
+        td= dictionary.created_at.strftime("%y.%m.%d")
+          =link_to 'edit', edit_dictionary_path(dictionary), class: 'btn btn-outline-primary mr-3'
+          =link_to 'destroy', dictionary, method: :delete, data: { confirm: "#{dictionary.eword}will be delete. Are you sure? " },class: 'btn btn-outline-danger'
+        
