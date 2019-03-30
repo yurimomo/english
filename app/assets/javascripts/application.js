@@ -15,4 +15,4 @@
 //= require turbolinks
 //= require_tree .
 
-// 要素を取得してクリックイベントを付与
+
