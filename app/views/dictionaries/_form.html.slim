@@ -1,3 +1,10 @@
+- if dictionary.errors.present?
+  ul#error_explanation
+    -dictionary.errors.full_messages.each do |message|
+      li= message
+
+
+
 = form_with model: @dictionary, class: 'container' , local: true do |f|
     .form-group
       = f.label :english
@@ -43,4 +50,3 @@
     
     .form-group
     = f.submit nil, class: 'btn btn-primary'
-        

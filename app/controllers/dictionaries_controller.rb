@@ -11,11 +11,12 @@ class DictionariesController < ApplicationController
   end
 
   def create
-    dictionary = Dictionary.new(dictionary_params)
-    if dictionary.save!
-      redirect_to dictionaries_url, notice: "#{dictionary.eword}-#{dictionary.jword} is registerd"
+    @dictionary = Dictionary.new(dictionary_params)
+    if @dictionary.save
+      redirect_to dictionaries_url, notice: "#{@dictionary.eword}-#{
+      @dictionary.jword} is registerd"
        else
-    render 'new'
+    render :new
    end
   end
 
