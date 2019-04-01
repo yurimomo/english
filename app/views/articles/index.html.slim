@@ -1,0 +1,10 @@
+h4.title Articles
+=link_to 'add article', new_article_path, class: 'btn btn-primary register'
+=link_to 'back to dictionary', dictionaries_path, class: 'btn btn-primary register'
+
+.container
+ - @articles.each do |article|
+    ul.article
+      =truncate(article.word, :length => 256, :omission => "..read more") 
+        =link_to 'edit', edit_article_path(article), class: 'btn btn-outline-danger register'
+        =link_to 'destroy', article, method: :delete, data: { confirm: "This will be delete. Are you sure? " },class: 'btn btn-outline-danger register'

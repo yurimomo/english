@@ -1,0 +1,11 @@
+h4.title Edit article
+
+nav.justify-content-end
+      = link_to 'back lists article', articles_path, class: 'btn btn-primary register'
+
+= form_with model: @article, class: 'container', local: true do |f|
+    .form-group
+      =f.text_area :word, :cols => "80", :rows => "60"
+
+    .form-group
+      =f.submit nil, class: 'btn btn-primary'
