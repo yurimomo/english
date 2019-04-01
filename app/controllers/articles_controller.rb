@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   def create
   	@article = Article.new(article_params)
   	if @article.save!
+  		ArticleMailer.send_article(@article).deliver_now
   		redirect_to articles_path, notice: "articleを追加しました。"
   	end
   end
