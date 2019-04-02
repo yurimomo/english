@@ -80,6 +80,7 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.action_mailer.default_url_options = { host: 'strawberry-pudding-77001.herokuapp.com' }
+  config.action_mailer.raise_delivery_errors = true
 
    ActionMailer::Base.delivery_method = :smtp
    ActionMailer::Base.smtp_settings =
