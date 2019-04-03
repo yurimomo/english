@@ -4,5 +4,5 @@ namespace :article do
 		articles = Article.all
 		article = articles.shuffle
 		ArticleMailer.every_article(article).deliver
-end
+	end
 end
