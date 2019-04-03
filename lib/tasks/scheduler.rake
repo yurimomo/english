@@ -10,3 +10,4 @@ namespace :article do
 		ArticleMailer.every_article(article).deliver
 	end
 end
+end
