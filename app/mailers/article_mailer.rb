@@ -1,4 +1,5 @@
 class ArticleMailer < ApplicationMailer
+	# saveArticleした時のmethod
 	def send_article(article)
 		@article = article
 		mail(
@@ -6,5 +7,17 @@ class ArticleMailer < ApplicationMailer
 			to: 'yuri715lily_momo@yahoo.co.jp',
 			from: 'article@example.com')
 	end
-end
+
+	def every_articles(article)
+		
+		mail(
+			subject: 'read and loud at least 3 times!!',
+			to: 'yuri715lily_momo@yahoo.co.jp',
+			from: 'article@example.com'
+		)
+		@article.deliver
+
+	end
+		
+	end
 
