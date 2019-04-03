@@ -1,5 +1,5 @@
 namespace :article do
-	desc '発行'
+	desc 'article'
 	task every_article: :environment do
 		articles = Article.all
 		article = articles.shuffle

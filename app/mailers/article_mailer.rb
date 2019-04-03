@@ -8,7 +8,8 @@ class ArticleMailer < ApplicationMailer
 			from: 'article@example.com')
 	end
 
-	def every_articles(article)
+	def every_article(article)
+		@article = article
 		
 		mail(
 			subject: 'read and loud at least 3 times!!',
