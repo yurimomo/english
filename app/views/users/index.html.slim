@@ -1,0 +1,8 @@
+-@users.each do |user|
+  div= link_to user.name , users_path
+
+.form-group
+  div.user= link_to 'back to dictionary', dictionaries_path, class:  'register'
+  div.user= link_to 'going to article' , articles_path, class: 'register'
+
+
