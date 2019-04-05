@@ -21,9 +21,45 @@ h4.title{
 #dictionary_detail {
 	margin-top: 30px;
 }
+
 ul.article {
 	border: 1px solid black;
+	position: relative;
 }
 article.id {
 	color: red;
+}
+/*article button*/
+.button {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	color: red;
+}
+
+.button_readmore {
+	position: absolute;
+	right: 100px;
+	bottom: 0;
+}
+
+a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+a::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: blue;
+  transform: scale(0, 1);
+  transform-origin: center top;
+  transition: transform .3s;
+}
+a:hover::after {
+  transform: scale(1, 1);
 }
