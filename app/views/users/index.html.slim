@@ -1,5 +1,15 @@
--@users.each do |user|
-  div= link_to user.name , users_path
+h4 ユーザー一覧
+
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= User.name
+  tbody
+
+    -@users.each do |user|
+      tr
+        td= link_to user.name , users_path
+  
 
 .form-group
   div.user= link_to 'back to dictionary', dictionaries_path, class:  'register'
