@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
+  before_action :set_article,only: [:show, :edit, :update, :destroy]
+
   def index
-  	@articles = Article.all.order(id: "desc")
+  	@articles = Article.all.order(id: 'desc')
   end
 
   def new
@@ -8,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-  	@article = Article.new(article_params)
+  	@article = current_user.articles.new(article_params)
   	if @article.save!
   		ArticleMailer.send_article(@article).deliver_now
   		redirect_to articles_path, notice: "articleを追加しました。"
@@ -16,15 +18,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
-  	@article = Article.find_by(id: params[:id])
   end
 
   def edit
-  	@article = Article.find_by(id: params[:id])
   end
 
   def destroy
-    article = Article.find_by(id: params[:id])
     article.destroy
     redirect_to articles_path
    end
@@ -34,5 +33,10 @@ class ArticlesController < ApplicationController
   def article_params
   	params.require(:article).permit(:word)
   end
+
+  def set_article
+   @article = current_user.articles.find(params[:id])
+ end
+
 
 end

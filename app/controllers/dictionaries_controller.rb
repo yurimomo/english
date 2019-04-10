@@ -3,7 +3,7 @@ class DictionariesController < ApplicationController
   before_action :set_dectionary, only: [:edit,:show, :update,:destroy]
   
   def index
-    @dictionaries = Dictionary.all.order(created_at: :desc)
+    @dictionaries = current_user.dictionaries
   end
 
   def new
@@ -11,7 +11,7 @@ class DictionariesController < ApplicationController
   end
 
   def create
-    @dictionary = Dictionary.new(dictionary_params)
+    @dictionary = current_user.dictionaries.new(dictionary_params)
     if @dictionary.save
       redirect_to dictionaries_url, notice: "#{@dictionary.eword}-#{
       @dictionary.jword} is registerd"
@@ -42,6 +42,6 @@ class DictionariesController < ApplicationController
     params.require(:dictionary).permit(:eword, :jword, :speech, :detail, :grammer)
   end
   def set_dectionary
-    @dictionary = Dictionary.find(params[:id])
+    @dictionary = current_user.dictionaries.find(params[:id])
   end
 end

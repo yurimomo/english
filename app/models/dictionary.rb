@@ -2,6 +2,8 @@ class Dictionary < ApplicationRecord
 	validates :eword, :jword,  presence: true
 	validate :add_errors
 
+	belongs_to :user
+
 	def add_errors
 		if speech.blank?
 			errors[:base] << "choose verb or adv or preposition"
