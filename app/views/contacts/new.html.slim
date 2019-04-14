@@ -1,0 +1,15 @@
+h4 if you want to contact us, feel free to message
+
+
+=form_with model: @contact, local: true ,url: confirm_contacts_path do |f|
+  .form-group
+    =f.label :name
+    =f.text_field :name, class: 'form-control'
+  .form-group
+    =f.label :email
+    =f.password_field :email, class: 'form-control'
+  .form-group
+    =f.label :request
+    =f.text_area :content, :rows => "5", class: 'form-control'
+  .form-group
+    =f.submit nil, :value => "request", class: 'request'

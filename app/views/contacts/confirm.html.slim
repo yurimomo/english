@@ -1,0 +1,16 @@
+h4 request message 
+
+
+=form_with model: @contact, local: true do |f|
+    =f.hidden_field :name
+    =f.hidden_field :email
+    =f.hidden_field :content 
+  
+    =f.label :name 
+    p=@contact.name
+    =f.label :email
+    p=@contact.email
+    =f.label :content
+    p=@contact.content
+
+    =f.submit nil , value: 'send message', class: 'request'

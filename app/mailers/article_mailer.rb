@@ -15,5 +15,4 @@ class ArticleMailer < ApplicationMailer
 			to: 'yuri715lily_momo@yahoo.co.jp',
 			from: 'article@example.com')
 	end
-
 end
