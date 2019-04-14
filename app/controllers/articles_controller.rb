@@ -11,8 +11,10 @@ class ArticlesController < ApplicationController
 
   def create
   	@article = current_user.articles.new(article_params)
+    @user = current_user
+    @email = @user.email
   	if @article.save!
-  		ArticleMailer.send_article(@article).deliver_now
+  		ArticleMailer.send_article(@article,@email).deliver_now
   		redirect_to articles_path, notice: "articleを追加しました。"
   	end
   end
@@ -31,7 +33,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-  	params.require(:article).permit(:word)
+  	params.require(:article).permit(:word,:user_id)
   end
 
   def set_article

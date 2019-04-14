@@ -2,14 +2,14 @@ doctype html
 html
   head
     title
-      | English
+     | English
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand English
+      .navbar-brand = link_to 'English', root_path, class: 'nav-link'
 
       ul.navbar-nav.ml-auto
         -if current_user

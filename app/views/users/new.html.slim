@@ -3,21 +3,19 @@
     -@user.errors.full_messages.each do |message|
       .message= message
 
-=link_to 'back to the dictionary', dictionaries_path, class: 'btn btn-outline'
-
-=form_with model: @user, class: 'container', local: true do |f|
-  .form_group
+=form_with model: @user, class: 'container, top-image', local: true do |f|
+  .form_group.contaier
     =f.label :name 
-    =f.text_field :name, class: 'form-control'
+    =f.text_field :name, class: 'form-control', id: 'session_name'
   .form-group
     =f.label :email
-    =f.text_field :email, class: 'form-control'
+    =f.text_field :email, class: 'form-control', id: 'session_email'
   .form-group
     =f.label :password
-    =f.password_field :password, class: 'form-control'
+    =f.password_field :password, class: 'form-control', id: 'session_password'
   .form-group
     =f.label :password_confirmation, 'password-confirm'
-    =f.password_field :password_confirmartion, class: 'form-control'
+    =f.password_field :password_confirmartion, class: 'form-control', id: 'password_confirm'
 
   .form-group
-    =f.submit nil, class: 'btn btn-outline-primary'
+    =f.submit nil, class: 'btn btn-primary'
