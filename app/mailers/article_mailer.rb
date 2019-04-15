@@ -11,7 +11,7 @@ class ArticleMailer < ApplicationMailer
 	# send 1 article every day
 	def every_article(article, email)
 		@article = article
-		@email
+		@email = email
 		mail(
 			subject: 'read and loud at least 3 times!!',
 			to: @email,
